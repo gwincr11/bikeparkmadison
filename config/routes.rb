@@ -1,4 +1,10 @@
 Bikepark::Application.routes.draw do
+  get "organizers/view"
+
+  match "organizers" => "organizers#view", :as => :organizers
+
+  get "home/view"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -31,6 +37,7 @@ Bikepark::Application.routes.draw do
   #     resource :seller
   #   end
 
+
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -49,7 +56,7 @@ Bikepark::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-
+  root to: 'home#view', as: 'home'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

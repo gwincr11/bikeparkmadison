@@ -1,0 +1,10 @@
+<section id="workers">
+	<header><h1>Organizers</h1></header>
+	<% @organizers.each do |org| %>
+		<div>
+			<img src="<%= org[:imgsrc] %>" alt="<%= org[:name] %>">
+			  <h1><%= org[:name] %></h1>
+			  <p><%= org[:descr] %></p>
+		</div>
+   <% end %>
+</section>

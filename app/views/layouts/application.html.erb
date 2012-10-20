@@ -7,8 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="wrapper">
+	<header>
+		<hgroup>
+			<h1><%= link_to "Bike Park", home_path %></h1>
+			<h3><%= link_to "Madison", home_path %></h3>
+		</hgroup>
+		<nav>
+			<ul>
+				<li><%= link_to "Home", home_path %></li>
+				<li><%= link_to "Organizers", organizers_path %></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</nav>
+	</header>
+	<section id="content">
+		<%= yield %>
+	</section>
+</div>
 </body>
 </html>
