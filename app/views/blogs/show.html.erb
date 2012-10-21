@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<article class="post">
+	<h1><%= link_to @blog.title, @blog %></h1>
+	<%=  image_tag @blog.image.url(:medium) %>
+	<p><%=  @blog.body %></p>
+	
+</article>
+
+
+<% if user_signed_in? %>
+<ul>
+  <li><%= link_to 'Edit', edit_blog_path(@blog) %></li>
+  <li><%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+</ul>
+<%end %>

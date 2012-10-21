@@ -1,0 +1,24 @@
+<section id="blogs">
+<h1>Blog</h1>
+
+<% @blogs.each do |blog| %>
+  <article class="post">
+    <h1><%= link_to blog.title, blog %></h1>
+    <%=  link_to image_tag(blog.image.url(:medium)), blog %>
+    <p><%= truncate blog.body, :length => 120, :seperator => " " %></p>
+    <% if user_signed_in? %>
+    <ul>
+      <li><%= link_to 'Show', blog %></li>
+      <li><%= link_to 'Edit', edit_blog_path(blog) %></li>
+      <li><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+    <%end %>
+  </article>
+<% end %>
+
+<% if user_signed_in? %>
+  <br />
+
+  <%= link_to 'New Blog', new_blog_path %>
+<% end %>
+</section>

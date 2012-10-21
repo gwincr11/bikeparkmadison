@@ -1,9 +1,20 @@
 Bikepark::Application.routes.draw do
+  resources :categories
+
+  devise_for :users
+
+  resources :blogs
+
   get "organizers/view"
 
   match "organizers" => "organizers#view", :as => :organizers
 
   get "home/view"
+
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+
+  devise_for :users, :controllers => { :registrations => 'registrations'}
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -41,3 +41,5 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'guard-livereload'
+gem "paperclip", "~> 3.0"
+gem 'devise'

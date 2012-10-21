@@ -17,13 +17,25 @@
 			<ul>
 				<li><%= link_to "Home", home_path %></li>
 				<li><%= link_to "Organizers", organizers_path %></li>
+				<li><%= link_to "Contact", contact_path %></li>
+				<li><%= link_to "Blog", blogs_path %></li>
 				<li></li>
 				<li></li>
-				<li></li>
-				<li></li>
+				<% if user_signed_in? %>
+				  <li>
+				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+				  </li>
+				<% end %>
 			</ul>
 		</nav>
 	</header>
+	<% [:info, :error, :notice, :alert].each do |key| %>
+	   <% if flash[key] %>
+	   <div class="<%= key %>" id="flash">
+	     <%= flash[key] %>
+	   </div>
+	   <% end %>
+	<% end %>
 	<section id="content">
 		<%= yield %>
 	</section>
